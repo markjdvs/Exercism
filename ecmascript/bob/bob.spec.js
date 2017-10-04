@@ -69,12 +69,12 @@ describe('Bob', () => {
     expect(result).toEqual('Whoa, chill out!');
   });
 
-  xtest('statement containing question mark', () => {
+  test('statement containing question mark', () => {
     const result = bob.hey('Ending with a ? means a question.');
     expect(result).toEqual('Whatever.');
   });
 
-  xtest('prattling on', () => {
+  test('prattling on', () => {
     const result = bob.hey('Wait! Hang on.  Are you going to be OK?');
     expect(result).toEqual('Sure.');
   });
