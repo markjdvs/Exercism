@@ -1,8 +1,12 @@
 export default class Cipher {
-  constructor() {
-    this.key = 'dddddddddd'; // define a key
+  constructor(key = 'dddddddddd') {
+    this.key = key; // define a key
     // could set lines 11 and 20 to the difference between this key and its place in the alphabet
     this.alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+    if (this.key === this.key.toUpperCase()) throw new Error('Bad key');
+    if (this.key === this.key.search(/[0-9]/g)) throw new Error('Bad key');
+    if (!this.key) throw new Error('Bad key');
   }
 
   encode(string) {
