@@ -14,7 +14,7 @@ export default class Cipher {
     for (let i = 0; i < string.length; i++) {
       const index = this.alphabet.indexOf(string[i]);
       // grab the index of each letter of the string to encode in the alphabet
-      encodedString[i] = this.alphabet[index + 3];
+      encodedString[i] = this.alphabet[index + this.alphabet.indexOf(this.key[i])];
       // apply the Caesar cipher i.e. difference of three as stated in readme
     }
     return encodedString.join('');
@@ -24,7 +24,7 @@ export default class Cipher {
     const decodedString = [];
     for (let i = 0; i < encodedString.length; i++) {
       const index = this.alphabet.indexOf(encodedString[i]);
-      decodedString[i] = this.alphabet[index - 3];
+      decodedString[i] = this.alphabet[index - this.alphabet.indexOf(this.key[i])];
     }
     return decodedString.join('');
   }
